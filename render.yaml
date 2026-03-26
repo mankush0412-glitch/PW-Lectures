@@ -1,0 +1,33 @@
+services:
+  - type: worker
+    name: pw-drm-bot
+    runtime: python
+    buildCommand: |
+      pip install -r requirements.txt
+      apt-get update -qq && apt-get install -y ffmpeg wget unzip || true
+      wget -q "https://www.bok.net/Bento4/binaries/Bento4-SDK-1-6-0-641.x86_64-unknown-linux.zip" -O /tmp/b4.zip || true
+      unzip -q /tmp/b4.zip -d /tmp/b4 || true
+      cp "/tmp/b4/Bento4-SDK-1-6-0-641.x86_64-unknown-linux/bin/mp4decrypt" /usr/local/bin/ || true
+      chmod +x /usr/local/bin/mp4decrypt || true
+    startCommand: python main.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: AUTH_USERS
+        value: ""
+      - key: LOG_CH
+        value: ""
+      - key: DOWNLOAD_DIR
+        value: ./DOWNLOADS
+      - key: MAX_PARALLEL_DL
+        value: "2"
+      - key: DEFAULT_QUALITY
+        value: best
