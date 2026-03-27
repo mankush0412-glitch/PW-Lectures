@@ -1,0 +1,11 @@
+python-telegram-bot==20.7
+requests
+aiohttp
+aiofiles
+yt-dlp
+motor
+pymongo
+httpx[http2]
+hachoir
+img2pdf
+bs4
