@@ -1,0 +1,13 @@
+pyrogram==2.0.106
+tgcrypto
+pyromod
+requests
+aiohttp
+aiofiles
+yt-dlp
+motor
+pymongo
+httpx[http2]
+hachoir
+img2pdf
+bs4
