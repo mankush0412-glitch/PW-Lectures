@@ -1,0 +1,35 @@
+services:
+  - type: worker
+    name: pw-drm-bot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      # Your existing env var — bot reads this as OWNER_ID
+      - key: ADMIN_IDS
+        sync: false
+      # Your existing env var — bot reads this as MONGO_URI
+      - key: MONGODB_URL
+        sync: false
+      # Optional: these are also accepted if you prefer
+      - key: OWNER_ID
+        value: ""
+      - key: MONGO_URI
+        value: ""
+      - key: AUTH_USERS
+        value: ""
+      - key: LOG_CH
+        value: ""
+      - key: THUMB_URL
+        value: ""
+      - key: MAX_PARALLEL_DL
+        value: "2"
+      - key: DEFAULT_QUALITY
+        value: "best"
+      - key: DOWNLOAD_DIR
+        value: "./DOWNLOADS"
